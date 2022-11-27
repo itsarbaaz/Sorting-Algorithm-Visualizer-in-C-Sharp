@@ -1,4 +1,4 @@
-# Sorting-Algorithm-Visualizer-in-C-Sharp
+# Sorting Algorithm Visualizer in C#
 - The Main Goal of this Project is to create a teaching support, GUI based, Visualization of the most known sorting algorithms like Bubble Sort, Selection Sort, Merge Sort, Insertion Sort, and Quick Sort, and to have better understanding of different sorting algorithms. This will also help us to get better understanding of Time complexity of different sorting algorithms.
 - The UI will contain dropdown menu to select size of array/List (*which will be represented as vertical bars in visualization panel*), dropdown menu to select different sorting algorithms like Selection Sort, Bubble Sort, Merge Sort, Insertion Sort and Quick Sort and the option to select the speed of sorting visualization, the UI will also contain two control buttons one to generate vertical bars on visualization panel and another to start the sorting.
 - User can select any sorting algorithm to sort, and can also adjust the speed of sorting. When user click on sort button, vertical bars in the visualization panel will be sorted according to the selected sorting algorithm and selected speed.
