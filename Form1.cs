@@ -23,12 +23,13 @@ namespace SAV_1
         private Graphics graphics;
         private List<Element> elements = new List<Element>();
         int tk = 20;
+        int ICount;
 
         private void Form1_Load(object sender, EventArgs e)
         {
             graphics = panel1.CreateGraphics();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)  //Button to generate random elements
         {
             try
             {
@@ -117,7 +118,7 @@ namespace SAV_1
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //Button to Sort Elements based on user selected sorting algorithm
         {
             String speed = comboBox3.Text;
             int s;
@@ -147,23 +148,33 @@ namespace SAV_1
                 else if (algo == "Bubble Sort")
                 {
                     
-                    Algorithms.BubbleSort.Sort(elements, graphics, tk,s);
+                     ICount=Algorithms.BubbleSort.Sort(elements, graphics, tk,s);
+                    textBox1.Text = String.Format("Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if the are in wrong order." +
+                    "\r\n\r\nTime Complexity: O(N^2)" + "\r\n\r\nTotal No. of Iterations: {0}",ICount);
                 }
                 else if (algo == "Selection Sort")
                 {
-                    Algorithms.SelectionSort.Sort(elements, graphics, tk,s);
+                    ICount=Algorithms.SelectionSort.Sort(elements, graphics, tk,s);
+                    textBox1.Text = String.Format("Selection Sort algorithm sorts an array by repeatedly finding the minimum element and from the unsorted part and putting it at the beginning." +
+                    "\r\n\r\nTime Complexity: O(N^2)" + "\r\n\r\nTotal No. of Iterations: {0}",ICount);
                 }
                 else if (algo == "Quick Sort")
                 {
-                    Algorithms.QuickSort.Sort(elements, graphics, tk,s);
+                    ICount = Algorithms.QuickSort.Sort(elements, graphics, tk,s);
+                    textBox1.Text = String.Format("Quicksort is a divide-and-conquer algorithm. It works by selecting the a 'pivot' element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot." +
+                    "\r\n\r\nTime Complexity: O(N^2)" + "\r\n\r\nTotal No. of Iterations: {0}",ICount);
                 }
                 else if (algo == "Insertion Sort")
                 {
-                    Algorithms.InsertionSort.Sort(elements, graphics, tk,s);
+                    ICount = Algorithms.InsertionSort.Sort(elements, graphics, tk,s);
+                    textBox1.Text = String.Format("This is an in-place sorting algorithm based on the idea that one element from the input elements is consumed in each iteration to find its correct position i.e, the position to which it belongs in a sorted array." +
+                    "\r\n\r\nTime Complexity: O(N^2)" + "\r\n\r\nTotal No. of Iterations: {0}",ICount);
                 }
                 else if (algo == "Merge Sort")
                 {
-                    Algorithms.MergeSort.Sort(elements, graphics, tk,s);
+                    ICount = Algorithms.MergeSort.Sort(elements, graphics, tk,s);
+                    textBox1.Text = String.Format("Merge Sort is a divide-and-conquer algorithm based on the idea of breaking down a list into several sub-lists until each sublist consists of a single element and merging those sublists in a manner that results into a sorted list." +
+                    "\r\n\r\nTime Complexity: O(N log(N)) "+ "\r\n\r\nTotal No. of Iterations: {0}",ICount);
                 }
 
             }
@@ -172,7 +183,7 @@ namespace SAV_1
                 MessageBox.Show("Please Select Sorting Algorithm", "Select Sorting Algorithm", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //Button to generate personalized elements
         {
          try
             {
@@ -222,6 +233,14 @@ namespace SAV_1
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
+        }
+        private void textBox3_Enter(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "Enter Values Seperated by space")
+            {
+                textBox3.Text = "";
+                textBox3.ForeColor = Color.Black;
+            }
         }
     }
 }
