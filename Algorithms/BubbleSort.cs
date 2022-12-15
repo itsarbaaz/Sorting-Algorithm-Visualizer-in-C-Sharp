@@ -12,10 +12,11 @@ namespace SAV_1.Algorithms
     public class BubbleSort
     {
         private List<Element> elements = new List<Element>();
-
-        public static void Sort(List<Element> elements, Graphics graphics, int tk, int s)
+  
+        public static int Sort(List<Element> elements, Graphics graphics, int tk, int s)
         {
             int n = elements.Count;
+            int ICount = 0;
             for (int i = 0; i < n - 1; i++)
             {
                 for (int j = 0; j < n - i - 1; j++)
@@ -25,6 +26,11 @@ namespace SAV_1.Algorithms
                         ElementHelper.DrawSwap(elements[j], elements[j + 1], graphics, tk,s);
                         ElementHelper.ElementSwap(elements, j, j + 1);
                         //Thread.Sleep(20);
+                    ICount++;
+                    }
+                    else
+                    {
+                        ICount++;
                     }
                 }
             }
@@ -32,6 +38,7 @@ namespace SAV_1.Algorithms
             {
                 ElementHelper.SelectedOne(elements[i],graphics, tk, s);
             }
+            return ICount;
         }
     }
 }
