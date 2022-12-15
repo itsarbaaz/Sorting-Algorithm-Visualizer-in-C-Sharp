@@ -11,8 +11,9 @@ namespace SAV_1.Algorithms
     public class QuickSort
     {
         private List<Element> elements = new List<Element>();
-        public static void Sort(List<Element> elements, Graphics graphics, int tk, int s)
+        public static int Sort(List<Element> elements, Graphics graphics, int tk, int s)
         {
+            int ICount = 0;
             int partition(List<Element> Myelements, int low, int high)
             {
                 int pivot = Myelements[high].Value;
@@ -26,6 +27,11 @@ namespace SAV_1.Algorithms
                         i++;
                         ElementHelper.DrawSwap(Myelements[i], Myelements[j], graphics,tk,s);
                         ElementHelper.ElementSwap(Myelements, i, j);
+                        ICount++;
+                    }
+                    else
+                    {
+                        ICount++;
                     }
                 }
                 ElementHelper.DrawSwap(elements[i + 1], elements[high], graphics,tk,s);
@@ -57,6 +63,7 @@ namespace SAV_1.Algorithms
                 }
                 elements[j + 1].Value = key;
             }
+            return ICount;
         }
     }
 }
