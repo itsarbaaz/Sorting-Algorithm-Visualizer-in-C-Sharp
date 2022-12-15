@@ -16,8 +16,9 @@ namespace SAV_1.Algorithms
         public static List<Element> myElements2 = new List<Element>();
         public static List<Element> myElements = new List<Element>();
 
-        public static void Sort(List<Element> elements, Graphics graphics, int tk, int s)
+        public static int Sort(List<Element> elements, Graphics graphics, int tk, int s)
         {
+            int ICount = 0;
             int n=elements.Count;
             List<Element> MyMergeSort(List<Element> myElements, Graphics myGraphics, int myTk, int low, int high)
             {
@@ -36,22 +37,24 @@ namespace SAV_1.Algorithms
                 int end_lo = mid;
                 int start_hi = mid + 1;
                 while ((l<=end_lo) && (start_hi<=h))
-                {
+                {   ICount++;
                     if (myElements[l].Value < myElements[start_hi].Value)
                     {
                         ElementHelper.SelectedOne(myElements[l], myGraphics, myTk, s);
                         Thread.Sleep(s);
                         l++;
+                        ICount++;
                     }
                     else
                     {   
                         for(int k=start_hi-1; k>=l;k--)
                         {
-                            //myElements[k + 1] = myElements[k];
+                            
                             ElementHelper.DrawSwap(myElements[k], myElements[k+1], graphics, tk,s);
                             ElementHelper.ElementSwap(myElements, k, k+1);
+                            ICount++;
                         }
-                        //l++;
+                       
                         end_lo++;
                         start_hi++;
                     }
@@ -63,6 +66,7 @@ namespace SAV_1.Algorithms
             {
                 ElementHelper.SelectedOne(elements[i], graphics, tk,s);
             }
+            return ICount;
         }
     }
 }
