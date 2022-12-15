@@ -172,6 +172,44 @@ namespace SAV_1
                 MessageBox.Show("Please Select Sorting Algorithm", "Select Sorting Algorithm", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+         try
+            {
+                elements.Clear();
+                panel1.Refresh();
+                
+                string[] myText = textBox3.Text.Split(' ');
+                int[] arr = new int[myText.Length];
+
+                int height = panel1.Height;
+                int padding = 30 + 5;
+
+                for (int i = 0; i < myText.Length; i++)
+                {
+                    arr[i] = int.Parse(myText[i]);
+                }
+
+                int size = arr.Length;
+                int length = panel1.Bottom;
+
+                for (int i = 0; i < size; i++)
+                {
+                    var start = new Point(padding, height);
+                    int value = height - arr[i] * 10;
+                    var end = new Point(padding, value);
+                    int rvalue = height - value;
+                    var element = new Element(start, end, rvalue);
+                    elements.Add(element);
+                    padding += 40;
+                    element.Draw(graphics, tk);
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Enter Elements Seperated by Space", "Enter Elements Seperated by Space", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
