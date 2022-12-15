@@ -10,8 +10,9 @@ namespace SAV_1.Algorithms
 {
     public class InsertionSort
     {
-        public static void Sort(List<Element> elements, Graphics graphics, int tk, int s)
+        public static int Sort(List<Element> elements, Graphics graphics, int tk, int s)
         {
+            int ICount = 0;
             int n = elements.Count;
             for (int i = 1; i < n; ++i)
             {
@@ -23,9 +24,12 @@ namespace SAV_1.Algorithms
                     ElementHelper.DrawSwap(elements[j], elements[j + 1], graphics, tk, s);
                     ElementHelper.ElementSwap(elements, j, j + 1);
                     j = j - 1;
+                    ICount++;
                 }
                 elements[j + 1].Value = key;
+                ICount++;
             }
+            return ICount;
         }
     }
 }
